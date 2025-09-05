@@ -6,14 +6,26 @@
     <title>Golden Hawk Enterprises | Vue Edition</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       /* Custom Styles */
       body {
-        font-family: sans-serif;
+        /* font-family: sans-serif; */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: #111827; /* bg-gray-900 */
         color: #ffffff; /* text-white */
+
+        font-family: "Lexend", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
       }
       .bg-grid-gold-900\/20 {
         /* background-image: linear-gradient(
@@ -395,7 +407,7 @@
         </div>
       </header>
 
-      <main>
+      <main class="border-b border-gray-950">
         <transition name="fade" mode="out-in">
           <div :key="currentView">
             <!-- Home Page View -->
@@ -1124,7 +1136,7 @@
         },
       }).mount("#app");
 
-      // Create particle effect
+      // Create particle effect ------------------------------------------------
       const particlesContainer = document.getElementById("particles-container");
       const particleCount = 80;
 
@@ -1136,9 +1148,10 @@
       function createParticle() {
         const particle = document.createElement("div");
         particle.className = "particle";
+        particle.style.filter = `blur(${Math.random() * 15}px)`;
 
         // Random size (small)
-        const size = Math.random() * 3 + 1;
+        const size = Math.random() * 3 + 5;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
 
